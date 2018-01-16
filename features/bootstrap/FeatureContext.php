@@ -20,14 +20,14 @@ final class FeatureContext implements Context
     /**
      * @Given /^I have a Zend\\ServiceManager container$/
      */
-    public function iHaveAZendServiceManagerContainer() : void
+    public function iHaveAZendServiceManagerContainer()
     {
     }
 
     /**
      * @When /^I instantiate a context$/
      */
-    public function iInstantiateAContext() : void
+    public function iInstantiateAContext()
     {
     }
 
@@ -35,7 +35,7 @@ final class FeatureContext implements Context
      * @Then /^I should have services injected$/
      * @throws \RuntimeException
      */
-    public function iShouldHaveServicesInjected() : void
+    public function iShouldHaveServicesInjected()
     {
         if (!$this->testService->works()) {
             throw new \RuntimeException('It didn\'t work.');

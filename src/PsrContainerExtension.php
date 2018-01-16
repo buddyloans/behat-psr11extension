@@ -12,20 +12,20 @@ use Symfony\Component\DependencyInjection\Definition;
 
 final class PsrContainerExtension implements Extension
 {
-    public function process(ContainerBuilder $container) : void
+    public function process(ContainerBuilder $container)
     {
     }
 
-    public function getConfigKey() : string
+    public function getConfigKey()
     {
         return __NAMESPACE__;
     }
 
-    public function initialize(ExtensionManager $extensionManager) : void
+    public function initialize(ExtensionManager $extensionManager)
     {
     }
 
-    public function configure(ArrayNodeDefinition $builder) : void
+    public function configure(ArrayNodeDefinition $builder)
     {
         /** @noinspection NullPointerExceptionInspection */
         $builder
@@ -36,7 +36,7 @@ final class PsrContainerExtension implements Extension
         ->end();
     }
 
-    public function load(ContainerBuilder $container, array $config) : void
+    public function load(ContainerBuilder $container, array $config)
     {
         $container->setParameter('roave.behat.psr.container.included.file', $config['container']);
         $container->setDefinition($config['name'], $this->createContainerDefinition());
@@ -60,7 +60,7 @@ final class PsrContainerExtension implements Extension
      *
      * @param Definition $definition
      */
-    private function setContainerScope(Definition $definition) : void
+    private function setContainerScope(Definition $definition)
     {
         if (method_exists($definition, 'setShared')) {
             $definition->setShared(false);

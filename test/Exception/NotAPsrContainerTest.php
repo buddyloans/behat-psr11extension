@@ -26,7 +26,7 @@ final class NotAPsrContainerTest extends TestCase
      * @param string $expectedType
      * @dataProvider nonContainerValuesProvider
      */
-    public function testExceptionForContainerValues($value, string $expectedType) : void
+    public function testExceptionForContainerValues($value, string $expectedType)
     {
         $filename = uniqid('filename', true);
 

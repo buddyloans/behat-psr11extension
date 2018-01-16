@@ -18,19 +18,19 @@ final class ContainerFactoryTest extends TestCase
      */
     private $tempFilename;
 
-    public function setUp() : void
+    public function setUp()
     {
         $this->tempFilename = tempnam(sys_get_temp_dir(), str_replace('\\', '_', __CLASS__) . '_');
     }
 
-    public function tearDown() : void
+    public function tearDown()
     {
         if (file_exists($this->tempFilename)) {
             unlink($this->tempFilename);
         }
     }
 
-    public function testFactoryThrowsExceptionWhenFileDoesNotReturnContainer() : void
+    public function testFactoryThrowsExceptionWhenFileDoesNotReturnContainer()
     {
         file_put_contents(
             $this->tempFilename,
@@ -41,7 +41,7 @@ final class ContainerFactoryTest extends TestCase
         ContainerFactory::createContainerFromIncludedFile($this->tempFilename);
     }
 
-    public function testFactoryReturnsContainerIfIncluded() : void
+    public function testFactoryReturnsContainerIfIncluded()
     {
         file_put_contents(
             $this->tempFilename,
